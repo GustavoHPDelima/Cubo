@@ -1,0 +1,73 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    text-align: center;
+}
+
+.cubo {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateX(0) rotateY(0);
+    transition: transform 0.5s ease-in-out;
+    margin-bottom: 20px;
+    perspective: 1000px;
+}
+
+.face {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    border: 2px solid #333;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.frente  { transform: rotateY(  0deg) translateZ(50px); }
+.traseira{ transform: rotateY(180deg) translateZ(50px); }
+.superior{ transform: rotateX( 90deg) translateZ(50px); }
+.inferior{ transform: rotateX(-90deg) translateZ(50px); }
+.esquerda{ transform: rotateY(-90deg) translateZ(50px); }
+.direita{ transform: rotateY( 90deg) translateZ(50px); }
+
+.button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.cubo.animacao {
+    animation: girar 2s ease-in-out;
+}
+
+@keyframes girar {
+    from {
+        transform: rotateX(0deg) rotateY(0deg);
+    }
+    to {
+        transform: rotateX(720deg) rotateY(720deg);
+    }
+}
